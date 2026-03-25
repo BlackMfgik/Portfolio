@@ -1,21 +1,42 @@
 const dot = document.getElementById("dot");
 const ring = document.getElementById("ring");
 
-document.addEventListener("mousemove", (e) => {
-  dot.style.left = e.clientX + "px";
-  dot.style.top = e.clientY + "px";
-  ring.style.left = e.clientX + "px";
-  ring.style.top = e.clientY + "px";
+const isTouch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+
+if (!isTouch) {
+  document.addEventListener("mousemove", (e) => {
+    dot.style.left = e.clientX + "px";
+    dot.style.top = e.clientY + "px";
+    ring.style.left = e.clientX + "px";
+    ring.style.top = e.clientY + "px";
+  });
+
+  document.addEventListener("mouseleave", () => {
+    dot.style.opacity = "0";
+    ring.style.opacity = "0";
+  });
+
+  document.addEventListener("mouseenter", () => {
+    dot.style.opacity = "1";
+    ring.style.opacity = "1";
+  });
+}
+
+const burger = document.getElementById("burger");
+const mobileNav = document.getElementById("mobileNav");
+
+burger.addEventListener("click", () => {
+  const isOpen = burger.classList.toggle("open");
+  mobileNav.classList.toggle("open", isOpen);
+  document.body.style.overflow = isOpen ? "hidden" : "";
 });
 
-document.addEventListener("mouseleave", () => {
-  dot.style.opacity = "0";
-  ring.style.opacity = "0";
-});
-
-document.addEventListener("mouseenter", () => {
-  dot.style.opacity = "1";
-  ring.style.opacity = "1";
+mobileNav.querySelectorAll(".mob-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    burger.classList.remove("open");
+    mobileNav.classList.remove("open");
+    document.body.style.overflow = "";
+  });
 });
 
 const revealObs = new IntersectionObserver(
