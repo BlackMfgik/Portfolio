@@ -33,6 +33,11 @@ body {
   overflow-x: hidden;
 }
 
+body::selection {
+  background-color: #d5a137;
+  color: #000000;
+}
+
 body::after {
   content: "";
   position: fixed;
