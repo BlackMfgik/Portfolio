@@ -120,7 +120,7 @@ nav {
   font-size: 10px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--txt-muted);
+  color: var(--txt-dim);
   text-decoration: none;
   transition: color 0.2s;
   cursor: none;
