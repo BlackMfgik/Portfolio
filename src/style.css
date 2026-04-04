@@ -14,8 +14,8 @@
   --line-soft: #2a2a2a;
   --txt: #e8e8e8;
   --txt-dim: #888;
-  --txt-muted: #444;
-  --txt-ghost: #2a2a2a;
+  --txt-muted: #636363;
+  --txt-ghost: #3f3e3e;
   --mono: "DM Mono", monospace;
   --display: "Syne", sans-serif;
 }
@@ -185,7 +185,7 @@ section {
 }
 
 .big-title .faint {
-  color: var(--txt-ghost);
+  color: #2a2a2a;
 }
 .big-title .mid {
   color: var(--txt-muted);
