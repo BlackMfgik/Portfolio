@@ -1236,3 +1236,20 @@ footer {
     padding: 24px 20px;
   }
 }
+
+.hero-cta-wrap {
+  display: flex;
+  gap: 48px;
+  align-items: flex-end;
+}
+
+.projects-header .projects-sec-label {
+  margin-bottom: 20px;
+}
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: none;
+}
