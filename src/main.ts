@@ -1,10 +1,10 @@
-const dot = document.getElementById("dot");
-const ring = document.getElementById("ring");
+const dot = document.getElementById("dot") as HTMLElement;
+const ring = document.getElementById("ring") as HTMLElement;
 
 const isTouch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
 if (!isTouch) {
-  document.addEventListener("mousemove", (e) => {
+  document.addEventListener("mousemove", (e: MouseEvent) => {
     dot.style.left = e.clientX + "px";
     dot.style.top = e.clientY + "px";
     ring.style.left = e.clientX + "px";
@@ -22,8 +22,8 @@ if (!isTouch) {
   });
 }
 
-const burger = document.getElementById("burger");
-const mobileNav = document.getElementById("mobileNav");
+const burger = document.getElementById("burger") as HTMLButtonElement;
+const mobileNav = document.getElementById("mobileNav") as HTMLElement;
 
 burger.addEventListener("click", () => {
   const isOpen = burger.classList.toggle("open");
@@ -31,7 +31,7 @@ burger.addEventListener("click", () => {
   document.body.style.overflow = isOpen ? "hidden" : "";
 });
 
-mobileNav.querySelectorAll(".mob-link").forEach((link) => {
+mobileNav.querySelectorAll<HTMLAnchorElement>(".mob-link").forEach((link) => {
   link.addEventListener("click", () => {
     burger.classList.remove("open");
     mobileNav.classList.remove("open");
@@ -50,9 +50,9 @@ const revealObs = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((el) => revealObs.observe(el));
 
-function animateBars(card) {
-  card.querySelectorAll(".bar-fill").forEach((bar) => {
-    bar.style.width = bar.dataset.w + "%";
+function animateBars(card: Element): void {
+  card.querySelectorAll<HTMLElement>(".bar-fill").forEach((bar) => {
+    bar.style.width = (bar.dataset["w"] ?? "0") + "%";
   });
 }
 

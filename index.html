@@ -88,7 +88,6 @@
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/src/style.css" />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap"
       rel="stylesheet"
@@ -98,260 +97,547 @@
       href="https://cdn.jsdelivr.net/npm/devicon@2.15.1/devicon.min.css"
     />
   </head>
-  <body>
-    <div id="dot"></div>
-    <div id="ring"></div>
 
-    <nav>
-      <a href="#" class="logo">!Aøkigahara</a>
-      <div class="nav-links">
-        <a href="#about">ABOUT</a>
-        <a href="#projects">WORK</a>
-        <a href="#contact">CONTACT</a>
+  <body>
+    <!-- ── Custom cursor ──────────────────────────────────────────── -->
+    <div
+      id="dot"
+      class="fixed w-2 h-2 bg-txt rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
+    ></div>
+    <div
+      id="ring"
+      class="fixed w-9 h-9 border border-[rgba(232,232,232,0.65)] rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
+    ></div>
+
+    <!-- ── Navigation ─────────────────────────────────────────────── -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-[500] h-16 flex items-center justify-between px-[52px] border-b border-line bg-[rgba(14,14,14,0.88)] backdrop-blur-[12px] [-webkit-backdrop-filter:blur(12px)] max-md:px-6 max-sm:px-5"
+    >
+      <a
+        href="#"
+        class="font-mono text-sm font-medium tracking-[4px] text-txt no-underline"
+        >!Aøkigahara</a
+      >
+
+      <div class="flex items-center gap-9 max-md:hidden">
+        <a
+          href="#about"
+          class="font-mono text-[10px] tracking-[3px] uppercase text-txt-dim no-underline transition-colors duration-200 hover:text-txt cursor-none"
+          >ABOUT</a
+        >
+        <a
+          href="#projects"
+          class="font-mono text-[10px] tracking-[3px] uppercase text-txt-dim no-underline transition-colors duration-200 hover:text-txt cursor-none"
+          >WORK</a
+        >
+        <a
+          href="#contact"
+          class="font-mono text-[10px] tracking-[3px] uppercase text-txt-dim no-underline transition-colors duration-200 hover:text-txt cursor-none"
+          >CONTACT</a
+        >
       </div>
-      <button class="burger" id="burger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
+
+      <button
+        class="burger hidden max-md:flex flex-col justify-center items-end gap-[6px] w-10 h-10 bg-transparent border-0 p-1 cursor-pointer z-[600]"
+        id="burger"
+        aria-label="Toggle menu"
+      >
+        <span class="block h-px bg-txt-dim w-6"></span>
+        <span class="block h-px bg-txt-dim w-4"></span>
       </button>
     </nav>
 
-    <div class="mobile-nav" id="mobileNav">
-      <a href="#about" class="mob-link">ABOUT</a>
-      <a href="#projects" class="mob-link">WORK</a>
-      <a href="#contact" class="mob-link">CONTACT</a>
+    <!-- ── Mobile nav overlay ─────────────────────────────────────── -->
+    <div
+      class="mobile-nav hidden max-md:flex fixed top-16 left-0 right-0 bottom-0 bg-[rgba(14,14,14,0.97)] backdrop-blur-[16px] [-webkit-backdrop-filter:blur(16px)] z-[490] flex-col justify-center items-center border-t border-line opacity-0 pointer-events-none"
+      id="mobileNav"
+    >
+      <a
+        href="#about"
+        class="mob-link font-mono text-[11px] tracking-[5px] uppercase text-txt-muted no-underline py-7 w-full text-center border-b border-line transition-colors duration-200 hover:text-txt hover:bg-surface first:border-t first:border-line"
+        >ABOUT</a
+      >
+      <a
+        href="#projects"
+        class="mob-link font-mono text-[11px] tracking-[5px] uppercase text-txt-muted no-underline py-7 w-full text-center border-b border-line transition-colors duration-200 hover:text-txt hover:bg-surface"
+        >WORK</a
+      >
+      <a
+        href="#contact"
+        class="mob-link font-mono text-[11px] tracking-[5px] uppercase text-txt-muted no-underline py-7 w-full text-center border-b border-line transition-colors duration-200 hover:text-txt hover:bg-surface"
+        >CONTACT</a
+      >
     </div>
 
-    <section id="hero">
-      <div class="eyebrow">
-        <div class="eyebrow-line"></div>
-        <div class="eyebrow-text">Frontend Developer</div>
+    <!-- ══════════════════════════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════════════════════════════ -->
+    <section
+      id="hero"
+      class="relative overflow-hidden min-h-screen pt-16 px-[52px] pb-0 flex flex-col border-b border-line max-md:px-6 max-sm:px-5 max-sm:min-h-[100svh]"
+    >
+      <!-- Eyebrow -->
+      <div class="flex items-center gap-4 pt-10 mb-8 max-sm:pt-7 max-sm:mb-6">
+        <div class="w-8 h-px bg-txt-muted"></div>
+        <div
+          class="font-mono text-[10px] tracking-[4px] uppercase text-txt-muted"
+        >
+          Frontend Developer
+        </div>
       </div>
-      <h1 class="big-title">
-        <span class="faint">FRONTEND</span><br />
-        <span class="mid">DEVELOPER</span><br />
+
+      <!-- Big title -->
+      <h1
+        class="font-sans font-extrabold text-[clamp(48px,10vw,170px)] leading-[0.88] tracking-[-3px] uppercase text-txt select-none overflow-hidden w-full max-md:text-[9vw] max-md:tracking-[-2px] max-sm:text-[8vw] max-sm:tracking-[-1.5px] max-sm:leading-[0.9] max-xs:text-[clamp(5vw,8vw,9vw)] max-xs:tracking-[-0.5px]"
+      >
+        <span class="text-[#2a2a2a]">FRONTEND</span><br />
+        <span class="text-txt-muted">DEVELOPER</span><br />
         <span>PORTFOLIO</span>
       </h1>
-      <div class="hero-bottom">
-        <p class="hero-desc">
+
+      <!-- Hero bottom bar -->
+      <div
+        class="mt-[60px] pt-10 pb-[52px] flex justify-between items-end border-t border-line max-md:flex-col max-md:items-start max-md:gap-7 max-sm:mt-9 max-sm:pt-7 max-sm:pb-10 max-sm:gap-6"
+      >
+        <p
+          class="text-sm font-normal text-txt-dim leading-[1.8] max-w-[360px] max-sm:text-[13px] max-sm:max-w-full"
+        >
           I build clean, functional interfaces using React, TypeScript and
           modern tooling.
         </p>
-        <div class="hero-cta-wrap">
-          <div class="nums">
-            <div class="num-item">
-              <div class="num-val">4</div>
-              <div class="num-tag">PROJECTS</div>
+
+        <div class="flex gap-12 items-end max-sm:gap-7">
+          <!-- Stats -->
+          <div class="flex gap-10 max-sm:gap-7">
+            <div class="text-right">
+              <div
+                class="font-sans font-extrabold text-[28px] text-txt-muted leading-none"
+              >
+                4
+              </div>
+              <div
+                class="font-mono text-[8px] tracking-[2px] uppercase text-txt-ghost mt-[5px]"
+              >
+                PROJECTS
+              </div>
             </div>
-            <div class="num-item">
-              <div class="num-val">JR</div>
-              <div class="num-tag">LEVEL</div>
+            <div class="text-right">
+              <div
+                class="font-sans font-extrabold text-[28px] text-txt-muted leading-none"
+              >
+                JR
+              </div>
+              <div
+                class="font-mono text-[8px] tracking-[2px] uppercase text-txt-ghost mt-[5px]"
+              >
+                LEVEL
+              </div>
             </div>
           </div>
-          <a href="#projects" class="cta-link">
-            <div class="cta-line"></div>
+
+          <!-- CTA -->
+          <a
+            href="#projects"
+            class="cta-link flex items-center gap-4 font-mono text-[10px] tracking-[3px] uppercase text-txt-dim no-underline transition-colors duration-200 hover:text-txt cursor-none"
+          >
+            <div class="cta-line w-10 h-px bg-current"></div>
             <span>View work</span>
           </a>
         </div>
       </div>
     </section>
 
-    <section id="about">
+    <!-- ══════════════════════════════════════════════════════════════
+         ABOUT
+    ══════════════════════════════════════════════════════════════════ -->
+    <section
+      id="about"
+      class="relative overflow-hidden py-[100px] px-[52px] grid grid-cols-2 gap-[80px] border-b border-line items-start max-md:px-6 max-md:grid-cols-1 max-md:gap-12 max-sm:px-5 max-sm:pt-[72px] max-sm:pb-[72px]"
+    >
+      <!-- Left column -->
       <div class="reveal">
-        <div class="sec-label">
-          <div class="sec-label-line"></div>
-          <div class="sec-label-text">001 / About</div>
+        <!-- Section label -->
+        <div class="flex items-center gap-4 mb-[60px] max-sm:mb-8">
+          <div class="w-7 h-px bg-txt-muted"></div>
+          <div
+            class="font-mono text-[9px] tracking-[4px] uppercase text-txt-muted"
+          >
+            001 / About
+          </div>
         </div>
-        <h2 class="sec-heading">
+
+        <!-- Heading -->
+        <h2
+          class="font-sans font-extrabold text-[clamp(44px,8vw,110px)] leading-[0.9] tracking-[-2px] uppercase overflow-hidden w-full max-md:text-[9.5vw] max-md:tracking-[-1.5px] max-sm:text-[9vw] max-sm:tracking-[-1px] max-sm:leading-[0.92] max-xs:text-[8.5vw] max-xs:tracking-[-0.5px]"
+        >
           <span>ABOUT</span><br />
-          <span class="outline">ME</span>
+          <span class="text-outline-ghost">ME</span>
         </h2>
-        <div class="about-copy">
+
+        <!-- Copy -->
+        <div
+          class="text-sm font-normal leading-[2] text-txt-dim mt-10 max-sm:mt-6 max-sm:text-[13px]"
+        >
           <p>
             I write clean code, build real projects and improve my skills daily.
           </p>
-          <p>
-            Stack: <strong>React</strong>, <strong>TypeScript</strong>,
-            <strong>JavaScript</strong>, HTML &amp; CSS, Vite, REST API, Git.
-            Currently looking for my first job or internship.
+          <p class="mt-5">
+            Stack: <strong class="text-txt font-semibold">React</strong>,
+            <strong class="text-txt font-semibold">TypeScript</strong>,
+            <strong class="text-txt font-semibold">JavaScript</strong>, HTML
+            &amp; CSS, Vite, REST API, Git. Currently looking for my first job
+            or internship.
           </p>
         </div>
-        <div class="mini-stats">
-          <div class="mini-stat">
-            <div class="mini-stat-val">4</div>
-            <div class="mini-stat-tag">Pet projects</div>
+
+        <!-- Mini stats grid -->
+        <div
+          class="grid grid-cols-2 gap-px bg-line border border-line mt-10 max-sm:mt-7"
+        >
+          <div
+            class="bg-bg px-7 pt-7 pb-6 max-sm:px-[18px] max-sm:pt-5 max-sm:pb-4"
+          >
+            <div
+              class="font-sans font-extrabold text-[48px] text-txt-muted leading-none max-sm:text-[36px] max-xs:text-[30px]"
+            >
+              4
+            </div>
+            <div
+              class="font-mono text-[9px] tracking-[2px] uppercase text-txt-ghost mt-2"
+            >
+              Pet projects
+            </div>
           </div>
-          <div class="mini-stat">
-            <div class="mini-stat-val">∞</div>
-            <div class="mini-stat-tag">Commits</div>
+          <div
+            class="bg-bg px-7 pt-7 pb-6 max-sm:px-[18px] max-sm:pt-5 max-sm:pb-4"
+          >
+            <div
+              class="font-sans font-extrabold text-[48px] text-txt-muted leading-none max-sm:text-[36px] max-xs:text-[30px]"
+            >
+              ∞
+            </div>
+            <div
+              class="font-mono text-[9px] tracking-[2px] uppercase text-txt-ghost mt-2"
+            >
+              Commits
+            </div>
           </div>
-          <div class="mini-stat">
-            <div class="mini-stat-val">4</div>
-            <div class="mini-stat-tag">Core skills</div>
+          <div
+            class="bg-bg px-7 pt-7 pb-6 max-sm:px-[18px] max-sm:pt-5 max-sm:pb-4"
+          >
+            <div
+              class="font-sans font-extrabold text-[48px] text-txt-muted leading-none max-sm:text-[36px] max-xs:text-[30px]"
+            >
+              4
+            </div>
+            <div
+              class="font-mono text-[9px] tracking-[2px] uppercase text-txt-ghost mt-2"
+            >
+              Core skills
+            </div>
           </div>
-          <div class="mini-stat">
-            <div class="mini-stat-val">0</div>
-            <div class="mini-stat-tag">Days without coding</div>
+          <div
+            class="bg-bg px-7 pt-7 pb-6 max-sm:px-[18px] max-sm:pt-5 max-sm:pb-4"
+          >
+            <div
+              class="font-sans font-extrabold text-[48px] text-txt-muted leading-none max-sm:text-[36px] max-xs:text-[30px]"
+            >
+              0
+            </div>
+            <div
+              class="font-mono text-[9px] tracking-[2px] uppercase text-txt-ghost mt-2"
+            >
+              Days without coding
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="about-right reveal d2">
-        <div class="quick-links">
+      <!-- Right column -->
+      <div class="about-right reveal d2 pt-3 max-md:pt-0">
+        <!-- Quick links -->
+        <div class="flex flex-col mt-10 max-md:mt-0">
           <a
             href="https://github.com/BlackMfgik"
-            class="quick-link"
+            class="quick-link flex items-center justify-between py-4 border-t border-b border-line font-mono text-[10px] tracking-[3px] uppercase text-txt-muted no-underline hover:text-txt cursor-none"
             target="_blank"
           >
             <span>GitHub</span><span>↗</span>
           </a>
           <a
             href="https://discord.com/users/554465791358140417"
-            class="quick-link"
+            class="quick-link flex items-center justify-between py-4 border-b border-line font-mono text-[10px] tracking-[3px] uppercase text-txt-muted no-underline hover:text-txt cursor-none"
             target="_blank"
           >
             <span>Discord</span><span>↗</span>
           </a>
           <a
             href="https://www.linkedin.com/in/%D0%B4%D0%BC%D0%B8%D1%82%D1%80%D0%BE-%D0%BB%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D0%B9-75a16638a/?locale=en-US"
-            class="quick-link"
+            class="quick-link flex items-center justify-between py-4 border-b border-line font-mono text-[10px] tracking-[3px] uppercase text-txt-muted no-underline hover:text-txt cursor-none"
             target="_blank"
           >
             <span>LinkedIn</span><span>↗</span>
           </a>
-          <a href="/cv.pdf" class="quick-link" download>
+          <a
+            href="/cv.pdf"
+            class="quick-link flex items-center justify-between py-4 border-b border-line font-mono text-[10px] tracking-[3px] uppercase text-txt-muted no-underline hover:text-txt cursor-none"
+            download
+          >
             <span>Download CV</span><span>↓</span>
           </a>
         </div>
 
-        <div class="status-box">
-          <div class="status-box-title">Current status</div>
-          <div class="status-rows">
-            <div class="status-row">
-              <div class="dot on"></div>
-              <span class="st-main">Open to work — full-time / freelance</span>
+        <!-- Status box -->
+        <div
+          class="mt-[52px] p-9 border border-line bg-surface max-sm:mt-9 max-sm:p-5"
+        >
+          <div
+            class="font-mono text-[9px] tracking-[4px] uppercase text-txt-muted mb-5"
+          >
+            Current status
+          </div>
+          <div class="flex flex-col gap-[14px]">
+            <div class="flex items-center gap-3">
+              <div
+                class="w-1.5 h-1.5 rounded-full shrink-0 bg-txt-muted dot-blink"
+              ></div>
+              <span class="font-mono text-[11px] tracking-[1px] text-txt-dim"
+                >Open to work — full-time / freelance</span
+              >
             </div>
-            <div class="status-row">
-              <div class="dot off"></div>
-              <span class="st-sub">Based in Cherkasy, Ukraine 🇺🇦</span>
+            <div class="flex items-center gap-3">
+              <div class="w-1.5 h-1.5 rounded-full shrink-0 bg-txt-ghost"></div>
+              <span class="font-mono text-[11px] tracking-[1px] text-txt-muted"
+                >Based in Cherkasy, Ukraine 🇺🇦</span
+              >
             </div>
-            <div class="status-row">
-              <div class="dot off"></div>
-              <span class="st-sub">Remote friendly</span>
+            <div class="flex items-center gap-3">
+              <div class="w-1.5 h-1.5 rounded-full shrink-0 bg-txt-ghost"></div>
+              <span class="font-mono text-[11px] tracking-[1px] text-txt-muted"
+                >Remote friendly</span
+              >
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="skills">
+    <!-- ══════════════════════════════════════════════════════════════
+         SKILLS
+    ══════════════════════════════════════════════════════════════════ -->
+    <section
+      id="skills"
+      class="relative overflow-hidden py-[100px] px-[52px] border-b border-line max-md:px-6 max-sm:px-5 max-sm:pt-[72px] max-sm:pb-[72px]"
+    >
+      <!-- Section label -->
       <div class="reveal">
-        <div class="sec-label">
-          <div class="sec-label-line"></div>
-          <div class="sec-label-text">002 / Skills</div>
+        <div class="flex items-center gap-4 mb-[60px] max-sm:mb-8">
+          <div class="w-7 h-px bg-txt-muted"></div>
+          <div
+            class="font-mono text-[9px] tracking-[4px] uppercase text-txt-muted"
+          >
+            002 / Skills
+          </div>
         </div>
       </div>
-      <div class="skills-top">
-        <h2 class="sec-heading reveal">
+
+      <!-- Skills top: heading + note -->
+      <div
+        class="grid grid-cols-2 gap-[80px] mb-[80px] items-end max-md:grid-cols-1 max-md:gap-6 max-md:mb-12"
+      >
+        <h2
+          class="reveal font-sans font-extrabold text-[clamp(44px,8vw,110px)] leading-[0.9] tracking-[-2px] uppercase overflow-hidden w-full max-md:text-[9.5vw] max-md:tracking-[-1.5px] max-sm:text-[9vw] max-sm:tracking-[-1px] max-sm:leading-[0.92] max-xs:text-[8.5vw] max-xs:tracking-[-0.5px]"
+        >
           <span>TECH</span><br />
-          <span class="outline">STACK</span>
+          <span class="text-outline-ghost">STACK</span>
         </h2>
-        <p class="skills-note reveal d1">
+        <p class="reveal d1 text-[13px] text-txt-muted leading-[1.9] font-mono">
           Currently studying and building projects with these technologies. Each
           one practised through real pet-projects.
         </p>
       </div>
 
-      <div class="skill-grid">
-        <div class="skill-card reveal">
-          <div class="skill-ico"><i class="devicon-html5-plain"></i></div>
-          <div class="skill-name">HTML</div>
-          <div class="skill-desc">
+      <!-- Skill cards grid -->
+      <div
+        class="grid grid-cols-5 gap-px bg-line border border-line max-md:grid-cols-2 max-sm:grid-cols-1"
+      >
+        <div
+          class="skill-card reveal bg-bg px-8 py-10 flex flex-col gap-6 transition-colors duration-300 relative overflow-hidden hover:bg-surface max-sm:px-6 max-sm:py-7 max-sm:gap-4"
+        >
+          <div class="text-[30px] leading-none text-txt-dim">
+            <i class="devicon-html5-plain"></i>
+          </div>
+          <div class="font-sans font-bold text-[22px] text-txt">HTML</div>
+          <div
+            class="font-mono text-[10px] tracking-[1px] text-txt-muted leading-[1.8]"
+          >
             Semantic markup, accessibility, SEO basics, forms &amp; validation
           </div>
         </div>
 
-        <div class="skill-card reveal d1">
-          <div class="skill-ico"><i class="devicon-css3-plain"></i></div>
-          <div class="skill-name">CSS</div>
-          <div class="skill-desc">
+        <div
+          class="skill-card reveal d1 bg-bg px-8 py-10 flex flex-col gap-6 transition-colors duration-300 relative overflow-hidden hover:bg-surface max-sm:px-6 max-sm:py-7 max-sm:gap-4"
+        >
+          <div class="text-[30px] leading-none text-txt-dim">
+            <i class="devicon-css3-plain"></i>
+          </div>
+          <div class="font-sans font-bold text-[22px] text-txt">CSS</div>
+          <div
+            class="font-mono text-[10px] tracking-[1px] text-txt-muted leading-[1.8]"
+          >
             Flexbox, Grid, animations, responsive design, CSS variables
           </div>
         </div>
 
-        <div class="skill-card reveal d2">
-          <div class="skill-ico"><i class="devicon-javascript-plain"></i></div>
-          <div class="skill-name">JavaScript</div>
-          <div class="skill-desc">
+        <div
+          class="skill-card reveal d2 bg-bg px-8 py-10 flex flex-col gap-6 transition-colors duration-300 relative overflow-hidden hover:bg-surface max-sm:px-6 max-sm:py-7 max-sm:gap-4"
+        >
+          <div class="text-[30px] leading-none text-txt-dim">
+            <i class="devicon-javascript-plain"></i>
+          </div>
+          <div class="font-sans font-bold text-[22px] text-txt">JavaScript</div>
+          <div
+            class="font-mono text-[10px] tracking-[1px] text-txt-muted leading-[1.8]"
+          >
             ES6+, DOM manipulation, async/await, fetch API, local storage
           </div>
         </div>
 
-        <div class="skill-card reveal d3">
-          <div class="skill-ico"><i class="devicon-react-original"></i></div>
-          <div class="skill-name">React</div>
-          <div class="skill-desc">
+        <div
+          class="skill-card reveal d3 bg-bg px-8 py-10 flex flex-col gap-6 transition-colors duration-300 relative overflow-hidden hover:bg-surface max-sm:px-6 max-sm:py-7 max-sm:gap-4"
+        >
+          <div class="text-[30px] leading-none text-txt-dim">
+            <i class="devicon-react-original"></i>
+          </div>
+          <div class="font-sans font-bold text-[22px] text-txt">React</div>
+          <div
+            class="font-mono text-[10px] tracking-[1px] text-txt-muted leading-[1.8]"
+          >
             Components, hooks (useState, useEffect), props, React Router
           </div>
         </div>
 
-        <div class="skill-card reveal d4">
-          <div class="skill-ico"><i class="devicon-typescript-plain"></i></div>
-          <div class="skill-name">TypeScript</div>
-          <div class="skill-desc">
+        <div
+          class="skill-card reveal d4 bg-bg px-8 py-10 flex flex-col gap-6 transition-colors duration-300 relative overflow-hidden hover:bg-surface max-sm:px-6 max-sm:py-7 max-sm:gap-4"
+        >
+          <div class="text-[30px] leading-none text-txt-dim">
+            <i class="devicon-typescript-plain"></i>
+          </div>
+          <div class="font-sans font-bold text-[22px] text-txt">TypeScript</div>
+          <div
+            class="font-mono text-[10px] tracking-[1px] text-txt-muted leading-[1.8]"
+          >
             Types, interfaces, basic generics — learning alongside JS
           </div>
         </div>
       </div>
 
-      <div class="tools-row reveal d1">
-        <div class="tool">
-          <div class="tool-pip"></div>
-          <div class="tool-label">Git / GitHub</div>
+      <!-- Tools row -->
+      <div class="reveal d1 mt-px bg-line flex max-sm:flex-wrap">
+        <div
+          class="flex-1 bg-bg px-8 py-5 border-r border-line flex items-center gap-[14px] max-sm:flex-[1_1_calc(50%-1px)] max-sm:px-5 max-sm:py-4 max-xs:flex-[1_1_100%]"
+        >
+          <div class="w-1 h-1 bg-txt-ghost rounded-full"></div>
+          <div
+            class="font-mono text-[10px] tracking-[2px] uppercase text-txt-muted"
+          >
+            Git / GitHub
+          </div>
         </div>
-        <div class="tool">
-          <div class="tool-pip"></div>
-          <div class="tool-label">VS Code</div>
+        <div
+          class="flex-1 bg-bg px-8 py-5 border-r border-line flex items-center gap-[14px] max-sm:flex-[1_1_calc(50%-1px)] max-sm:px-5 max-sm:py-4 max-xs:flex-[1_1_100%]"
+        >
+          <div class="w-1 h-1 bg-txt-ghost rounded-full"></div>
+          <div
+            class="font-mono text-[10px] tracking-[2px] uppercase text-txt-muted"
+          >
+            VS Code
+          </div>
         </div>
-        <div class="tool">
-          <div class="tool-pip"></div>
-          <div class="tool-label">npm / Vite</div>
+        <div
+          class="flex-1 bg-bg px-8 py-5 border-r border-line flex items-center gap-[14px] max-sm:flex-[1_1_calc(50%-1px)] max-sm:px-5 max-sm:py-4 max-xs:flex-[1_1_100%]"
+        >
+          <div class="w-1 h-1 bg-txt-ghost rounded-full"></div>
+          <div
+            class="font-mono text-[10px] tracking-[2px] uppercase text-txt-muted"
+          >
+            npm / Vite
+          </div>
         </div>
-        <div class="tool">
-          <div class="tool-pip"></div>
-          <div class="tool-label">REST API</div>
+        <div
+          class="flex-1 bg-bg px-8 py-5 flex items-center gap-[14px] max-sm:flex-[1_1_calc(50%-1px)] max-sm:px-5 max-sm:py-4 max-xs:flex-[1_1_100%]"
+        >
+          <div class="w-1 h-1 bg-txt-ghost rounded-full"></div>
+          <div
+            class="font-mono text-[10px] tracking-[2px] uppercase text-txt-muted"
+          >
+            REST API
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="projects">
-      <div class="projects-header reveal">
+    <!-- ══════════════════════════════════════════════════════════════
+         PROJECTS
+    ══════════════════════════════════════════════════════════════════ -->
+    <section
+      id="projects"
+      class="relative overflow-hidden py-[100px] px-[52px] border-b border-line max-md:px-6 max-sm:px-5 max-sm:pt-[72px] max-sm:pb-[72px]"
+    >
+      <!-- Header -->
+      <div
+        class="reveal flex justify-between items-end mb-[60px] max-sm:flex-col max-sm:items-start max-sm:gap-3 max-sm:mb-10"
+      >
         <div>
-          <div class="sec-label projects-sec-label">
-            <div class="sec-label-line"></div>
-            <div class="sec-label-text">003 / Work</div>
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-7 h-px bg-txt-muted"></div>
+            <div
+              class="font-mono text-[9px] tracking-[4px] uppercase text-txt-muted"
+            >
+              003 / Work
+            </div>
           </div>
-          <h2 class="sec-heading">
+          <h2
+            class="font-sans font-extrabold text-[clamp(44px,8vw,110px)] leading-[0.9] tracking-[-2px] uppercase overflow-hidden w-full max-md:text-[9.5vw] max-md:tracking-[-1.5px] max-sm:text-[9vw] max-sm:tracking-[-1px] max-sm:leading-[0.92] max-xs:text-[8.5vw] max-xs:tracking-[-0.5px]"
+          >
             <span>SELECTED</span><br />
-            <span class="outline">PROJECTS</span>
+            <span class="text-outline-ghost">PROJECTS</span>
           </h2>
         </div>
-        <div class="projects-aside">Pet projects &amp; learning</div>
+        <div
+          class="font-mono text-[10px] tracking-[2px] text-txt-ghost uppercase pb-2 max-sm:pb-0"
+        >
+          Pet projects &amp; learning
+        </div>
       </div>
 
-      <div class="project-grid">
+      <!-- Project grid -->
+      <div
+        class="grid grid-cols-2 gap-px bg-line border border-line max-md:grid-cols-1"
+      >
         <a
           href="#"
           target="_blank"
           rel="noopener noreferrer"
-          class="project-link"
+          class="no-underline text-inherit block cursor-none"
         >
-          <div class="project-card reveal">
-            <div class="card-top">
-              <div class="card-idx">01 / 04</div>
-              <div class="card-yr">2025</div>
+          <div
+            class="reveal bg-bg px-11 pt-11 pb-9 flex flex-col gap-5 transition-colors duration-300 cursor-none overflow-hidden hover:bg-surface max-sm:px-7 max-sm:py-8 max-sm:gap-4 max-xs:p-5"
+          >
+            <div class="flex justify-between items-start">
+              <div class="font-mono text-[10px] tracking-[2px] text-txt-ghost">
+                01 / 04
+              </div>
+              <div class="font-mono text-[10px] tracking-[2px] text-txt-ghost">
+                2025
+              </div>
             </div>
-            <div class="project-name">Come By</div>
-            <div class="project-desc">
+            <div
+              class="font-sans font-extrabold text-[clamp(28px,3.5vw,46px)] leading-[0.95] tracking-[-1px] uppercase text-txt"
+            >
+              Come By
+            </div>
+            <div class="text-[13px] text-txt-muted leading-[1.8] max-w-[380px]">
               Online food &amp; grocery ordering web app. React · TypeScript ·
               Vite. Product catalog with category filtering, cart, auth, user
               account, light/dark theme, order modal.
@@ -363,15 +649,25 @@
           href="https://okrip-world.vercel.app"
           target="_blank"
           rel="noopener noreferrer"
-          class="project-link"
+          class="no-underline text-inherit block cursor-none"
         >
-          <div class="project-card reveal d1">
-            <div class="card-top">
-              <div class="card-idx">02 / 04</div>
-              <div class="card-yr">2026</div>
+          <div
+            class="reveal d1 bg-bg px-11 pt-11 pb-9 flex flex-col gap-5 transition-colors duration-300 cursor-none overflow-hidden hover:bg-surface max-sm:px-7 max-sm:py-8 max-sm:gap-4 max-xs:p-5"
+          >
+            <div class="flex justify-between items-start">
+              <div class="font-mono text-[10px] tracking-[2px] text-txt-ghost">
+                02 / 04
+              </div>
+              <div class="font-mono text-[10px] tracking-[2px] text-txt-ghost">
+                2026
+              </div>
             </div>
-            <div class="project-name">Okrip World</div>
-            <div class="project-desc">
+            <div
+              class="font-sans font-extrabold text-[clamp(28px,3.5vw,46px)] leading-[0.95] tracking-[-1px] uppercase text-txt"
+            >
+              Okrip World
+            </div>
+            <div class="text-[13px] text-txt-muted leading-[1.8] max-w-[380px]">
               Українська Minecraft-мережа з трьома серверами — Vanilla, Modded і
               Creative. Живі карти світів, свій маскот OiOi та активна спільнота
               у Discord і Telegram.
@@ -383,15 +679,27 @@
           href="#"
           target="_blank"
           rel="noopener noreferrer"
-          class="project-link"
+          class="no-underline text-inherit block cursor-none"
         >
-          <div class="project-card reveal d2">
-            <div class="card-top">
-              <div class="card-idx">03 / 04</div>
-              <div class="card-yr">2026</div>
+          <div
+            class="reveal d2 bg-bg px-11 pt-11 pb-9 flex flex-col gap-5 transition-colors duration-300 cursor-none overflow-hidden hover:bg-surface max-sm:px-7 max-sm:py-8 max-sm:gap-4 max-xs:p-5"
+          >
+            <div class="flex justify-between items-start">
+              <div class="font-mono text-[10px] tracking-[2px] text-txt-ghost">
+                03 / 04
+              </div>
+              <div class="font-mono text-[10px] tracking-[2px] text-txt-ghost">
+                2026
+              </div>
             </div>
-            <div class="project-name">~~~</div>
-            <div class="project-desc">~~~</div>
+            <div
+              class="font-sans font-extrabold text-[clamp(28px,3.5vw,46px)] leading-[0.95] tracking-[-1px] uppercase text-txt"
+            >
+              ~~~
+            </div>
+            <div class="text-[13px] text-txt-muted leading-[1.8] max-w-[380px]">
+              ~~~
+            </div>
           </div>
         </a>
 
@@ -399,83 +707,145 @@
           href="#"
           target="_blank"
           rel="noopener noreferrer"
-          class="project-link"
+          class="no-underline text-inherit block cursor-none"
         >
-          <div class="project-card reveal d3">
-            <div class="card-top">
-              <div class="card-idx">04 / 04</div>
-              <div class="card-yr">2026</div>
+          <div
+            class="reveal d3 bg-bg px-11 pt-11 pb-9 flex flex-col gap-5 transition-colors duration-300 cursor-none overflow-hidden hover:bg-surface max-sm:px-7 max-sm:py-8 max-sm:gap-4 max-xs:p-5"
+          >
+            <div class="flex justify-between items-start">
+              <div class="font-mono text-[10px] tracking-[2px] text-txt-ghost">
+                04 / 04
+              </div>
+              <div class="font-mono text-[10px] tracking-[2px] text-txt-ghost">
+                2026
+              </div>
             </div>
-            <div class="project-name">~~~</div>
-            <div class="project-desc">~~~</div>
+            <div
+              class="font-sans font-extrabold text-[clamp(28px,3.5vw,46px)] leading-[0.95] tracking-[-1px] uppercase text-txt"
+            >
+              ~~~
+            </div>
+            <div class="text-[13px] text-txt-muted leading-[1.8] max-w-[380px]">
+              ~~~
+            </div>
           </div>
         </a>
       </div>
     </section>
 
-    <section id="contact">
+    <!-- ══════════════════════════════════════════════════════════════
+         CONTACT
+    ══════════════════════════════════════════════════════════════════ -->
+    <section
+      id="contact"
+      class="relative overflow-hidden py-[100px] pb-[80px] px-[52px] grid grid-cols-[auto_1fr] gap-[40px] items-start max-md:px-6 max-md:grid-cols-1 max-md:gap-12 max-sm:px-5 max-sm:pt-[72px] max-sm:pb-[60px]"
+    >
+      <!-- Left: big text -->
       <div class="reveal">
-        <div class="sec-label">
-          <div class="sec-label-line"></div>
-          <div class="sec-label-text">004 / Contact</div>
+        <div class="flex items-center gap-4 mb-[60px] max-sm:mb-8">
+          <div class="w-7 h-px bg-txt-muted"></div>
+          <div
+            class="font-mono text-[9px] tracking-[4px] uppercase text-txt-muted"
+          >
+            004 / Contact
+          </div>
         </div>
-        <div class="contact-big">
-          <span class="outline">LET'S</span>
-          <span class="fill">WORK</span>
-          <span class="outline">TOGETHER</span>
+        <div
+          class="font-sans font-extrabold text-[clamp(52px,9vw,130px)] leading-[0.88] tracking-[-3px] uppercase overflow-hidden w-full max-md:text-[10vw] max-md:tracking-[-2px] max-sm:text-[9.5vw] max-sm:tracking-[-1.5px] max-sm:leading-[0.9] max-xs:text-[9vw] max-xs:tracking-[-1px]"
+        >
+          <span class="text-outline-ghost">LET'S</span>
+          <span class="text-txt-dim block">WORK</span>
+          <span class="text-outline-ghost">TOGETHER</span>
         </div>
       </div>
 
-      <div class="contact-right reveal d1">
-        <div class="contact-field">
-          <div class="field-label">Email</div>
-          <a href="mailto:lanovui0902@gmail.com" class="field-val"
+      <!-- Right: contact fields -->
+      <div class="reveal d1 pt-3 max-sm:w-full max-sm:min-w-0">
+        <div class="py-7 border-t border-b border-line max-sm:py-[22px]">
+          <div
+            class="font-mono text-[9px] tracking-[3px] uppercase text-txt-ghost mb-[10px]"
+          >
+            Email
+          </div>
+          <a
+            href="mailto:lanovui0902@gmail.com"
+            class="font-sans font-semibold text-[18px] text-txt no-underline block transition-colors duration-200 hover:text-txt-dim cursor-none max-sm:text-[16px] max-sm:break-all max-xs:text-[14px]"
             >lanovui0902@gmail.com</a
           >
         </div>
-        <div class="contact-field">
-          <div class="field-label">Discord</div>
+
+        <div class="py-7 border-b border-line max-sm:py-[22px]">
+          <div
+            class="font-mono text-[9px] tracking-[3px] uppercase text-txt-ghost mb-[10px]"
+          >
+            Discord
+          </div>
           <a
             href="https://discord.com/users/554465791358140417"
-            class="field-val"
+            class="font-sans font-semibold text-[18px] text-txt no-underline block transition-colors duration-200 hover:text-txt-dim cursor-none max-sm:text-[16px] max-xs:text-[14px]"
             >aokigaharas</a
           >
         </div>
-        <div class="contact-field">
-          <div class="field-label">LinkedIn</div>
+
+        <div class="py-7 border-b border-line max-sm:py-[22px]">
+          <div
+            class="font-mono text-[9px] tracking-[3px] uppercase text-txt-ghost mb-[10px]"
+          >
+            LinkedIn
+          </div>
           <a
             href="https://www.linkedin.com/in/%D0%B4%D0%BC%D0%B8%D1%82%D1%80%D0%BE-%D0%BB%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D0%B9-75a16638a/?locale=en-US"
-            class="field-val"
+            class="font-sans font-semibold text-[18px] text-txt no-underline block transition-colors duration-200 hover:text-txt-dim cursor-none max-sm:text-[16px] max-xs:text-[14px]"
             target="_blank"
             >Dmytro Lanovyi</a
           >
         </div>
-        <div class="contact-field">
-          <div class="field-label">Location</div>
-          <div class="field-val small">Cherkasy, Ukraine 🇺🇦 · Remote</div>
+
+        <div class="py-7 border-b border-line max-sm:py-[22px]">
+          <div
+            class="font-mono text-[9px] tracking-[3px] uppercase text-txt-ghost mb-[10px]"
+          >
+            Location
+          </div>
+          <div
+            class="font-sans font-normal text-sm text-txt-dim block max-sm:text-[13px]"
+          >
+            Cherkasy, Ukraine 🇺🇦 · Remote
+          </div>
         </div>
-        <div class="contact-field">
-          <div class="field-label">Availability</div>
-          <div class="field-val small">
+
+        <div class="py-7 border-b border-line max-sm:py-[22px]">
+          <div
+            class="font-mono text-[9px] tracking-[3px] uppercase text-txt-ghost mb-[10px]"
+          >
+            Availability
+          </div>
+          <div
+            class="font-sans font-normal text-sm text-txt-dim block max-sm:text-[13px]"
+          >
             Open to junior positions &amp; internships
           </div>
         </div>
-        <div class="socials">
+
+        <!-- Social buttons -->
+        <div
+          class="grid grid-cols-3 gap-px bg-line border border-line mt-9 max-sm:grid-cols-2 max-sm:w-full"
+        >
           <a
             href="https://github.com/BlackMfgik"
-            class="social-btn"
+            class="bg-bg p-5 text-center font-mono text-[9px] tracking-[3px] uppercase text-txt-muted no-underline transition-colors duration-200 hover:bg-surface-hi hover:text-txt cursor-none max-sm:p-[18px_12px] max-sm:text-[8px] max-xs:p-[16px_8px] max-xs:tracking-[2px]"
             target="_blank"
             >GitHub</a
           >
           <a
             href="https://discord.com/users/554465791358140417"
-            class="social-btn"
+            class="bg-bg p-5 text-center font-mono text-[9px] tracking-[3px] uppercase text-txt-muted no-underline transition-colors duration-200 hover:bg-surface-hi hover:text-txt cursor-none max-sm:p-[18px_12px] max-sm:text-[8px] max-xs:p-[16px_8px] max-xs:tracking-[2px]"
             target="_blank"
             >Discord</a
           >
           <a
             href="https://www.linkedin.com/in/%D0%B4%D0%BC%D0%B8%D1%82%D1%80%D0%BE-%D0%BB%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D0%B9-75a16638a/?locale=en-US"
-            class="social-btn"
+            class="bg-bg p-5 text-center font-mono text-[9px] tracking-[3px] uppercase text-txt-muted no-underline transition-colors duration-200 hover:bg-surface-hi hover:text-txt cursor-none max-sm:p-[18px_12px] max-sm:text-[8px] max-xs:p-[16px_8px] max-xs:tracking-[2px]"
             target="_blank"
             >LinkedIn</a
           >
@@ -483,11 +853,18 @@
       </div>
     </section>
 
-    <footer>
-      <div class="footer-note">!Aøkigahara © 2026</div>
-      <div class="footer-note">Handcrafted with precision</div>
+    <!-- ── Footer ──────────────────────────────────────────────────── -->
+    <footer
+      class="border-t border-line py-6 px-[52px] flex justify-between items-center max-md:px-6 max-sm:px-5 max-sm:flex-col max-sm:gap-2 max-sm:py-5 max-sm:text-center"
+    >
+      <div class="font-mono text-[9px] tracking-[2px] text-txt-ghost uppercase">
+        !Aøkigahara © 2026
+      </div>
+      <div class="font-mono text-[9px] tracking-[2px] text-txt-ghost uppercase">
+        Handcrafted with precision
+      </div>
     </footer>
 
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
